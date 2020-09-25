@@ -6,6 +6,6 @@
 		"database":"mas"
 	},
 	"databaseConfig" :"mas",
-   	"defaultImplementation": true,
-    "loggingMode": "ERROR"
+	"defaultImplementation": true,
+  "loggingMode": "ERROR"
 }

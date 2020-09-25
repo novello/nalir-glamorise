@@ -45,7 +45,7 @@ token_path = '/'.join(os.getcwd().split('/')[:-1] + ['zfiles', 'tokens.xml'])
 
 
 tokens = et.parse(token_path)
-rdbms = RDBMS(config.database, config.connection)
+rdbms = RDBMS(config.connection)
     
 f_output = open(rel_file, 'w')
 f_output.write('query | nalir_matches | nalir_result |\n')

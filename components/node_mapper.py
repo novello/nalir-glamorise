@@ -1,6 +1,7 @@
 from copy import deepcopy
 from re import split
 import string
+from xml.etree.ElementTree import parse
 
 from pandas import DataFrame
 import nltk
@@ -9,7 +10,7 @@ from nltk.corpus import stopwords
 from misc.similarity import similarity, lemmatize, is_numeric
 from rdbms.mapped_schema_element import MappedSchemaElement
 
-from config import ConfigHandler
+# from config import ConfigHandler
 from config import get_logger
 
 logger = get_logger(__file__)
@@ -17,7 +18,10 @@ logger = get_logger(__file__)
 class NodeMapper:
 
     @staticmethod
-    def phrase_process(query, db, tokens):
+    def phrase_process(query, db, config):
+        token_path = f'{config.zfiles_path}/tokens.xml'
+        tokens = parse(token_path)
+
         NodeMapper.tokenizer(query, tokens)
         NodeMapper.delete_useless(query)
         NodeMapper.map(query,db)

@@ -42,7 +42,7 @@ token_path = '/'.join(os.getcwd().split('/')[:-1] + ['zfiles', 'tokens.xml'])
 
 
 tokens = et.parse(token_path)
-rdbms = RDBMS(config.database, config.connection)
+rdbms = RDBMS(config.connection)
 logger.debug("Loading inverted index")
 begin = time.time()
 LateCandidateMapper()

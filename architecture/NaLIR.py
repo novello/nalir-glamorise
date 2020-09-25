@@ -13,13 +13,6 @@
 # ---
 
 # +
-import sys
-sys.path.append('../')
-
-import os
-import logging
-import xml.etree.ElementTree as et
-
 from rdbms.rdbms import RDBMS
 from data_structure.query import Query
 from components.stanford_parser import StanfordParser
@@ -29,28 +22,26 @@ from components.tree_structure_adjustor import TreeStructureAdjustor
 from components.explainer import explain
 from components.sql_translator import translate
 
-from misc.process_command import CommandProcessor
-
 from config import ConfigHandler
-from config import get_logger
-
-# +
-database = 'mas'
-config = ConfigHandler(database=database,reset=True)
-logger = get_logger(__name__)
-
-token_path = '/'.join(os.getcwd().split('/')[:-1] + ['zfiles', 'tokens.xml'])
-
-# +
-command_processor = CommandProcessor()
-tokens = et.parse(token_path)
-print("load")
-rdbms = RDBMS(config.database, config.connection)
-
-
-query_line='return me the authors who have papers in VLDB conference before 2002 after 1995.'
 # -
 
+config_json_text = '''{
+    "connection":{
+        "host": "localhost",
+        "password":"paulo",
+        "user":"paulo",
+        "database":"mas"
+    },
+    "defaultImplementation": true,
+    "loggingMode": "ERROR",
+    "zfiles_path":"/home/pr3martins/Desktop/zfiles",
+}
+'''
+config = ConfigHandler(reset=True,config_json_text=config_json_text)
+
+rdbms = RDBMS(config)
+
+query_line='return me the authors who have papers in VLDB conference before 2002 after 1995.'
 query = Query(query_line,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser
@@ -64,7 +55,7 @@ query.parse_tree.show()
 
 # ## Node Mapper
 
-NodeMapper.phrase_process(query,rdbms,tokens)
+NodeMapper.phrase_process(query,rdbms,config)
 
 query.parse_tree.show()
 

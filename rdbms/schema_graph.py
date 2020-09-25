@@ -9,12 +9,13 @@ class SchemaGraph:
     REL_EDGE = 0.995
     ATT_EDGE = 0.995
 
-    default_path =  '/'.join(os.getcwd().split('/')[:-1] + ['zfiles', '{0}{1}.json'])
-    def __init__(self, name):
+    def __init__(self, name, config):
+
+        self.default_path = config.zfiles_path+'/{0}{1}.json'
+
         self.schema_elements = []
         self.weight = None
         self.path_graph_file = self.default_path.format(name, "Relations")
-        print(self.path_graph_file)
         with open(self.path_graph_file, 'r') as file:
             self.raw_graph_relation = json.load(file)
             for node in self.raw_graph_relation:
@@ -32,7 +33,6 @@ class SchemaGraph:
                         relation.default_attribute = attribute
 
                     if raw_attribute.get('type', None) == 'pk':
-                        #print('setting pk on', relation)
                         relation.primary_key = attribute
 
         self.weights = np.zeros((len(self.schema_elements), \
@@ -43,43 +43,23 @@ class SchemaGraph:
 
 
         relations = self.get_elements_by_type('relationship entity')
-        print("Get relations")
         for relation in relations:
             for attribute in relation.attributes:
-                #print('att: ', relation.element_id, attribute.element_id  )
                 self.weights[relation.element_id][attribute.element_id] = self.ATT_EDGE
 
-        print("Get edges")
         self.path_edges_file = self.default_path.format(name, "Edges")
         with open(self.path_edges_file, 'r') as file:
             self.raw_edge_relation = json.load(file)
             for edge in self.raw_edge_relation:
-                #print('searching for: ', edge['foreignRelation'], edge['foreignAttribute'], ' on ', edge['primaryRelation'])
                 fk = self.search_attribute(edge['foreignRelation'], edge['foreignAttribute'])
                 pk = self.search_relation(edge['primaryRelation'])
-                #print('found for: ', edge['foreignRelation'], edge['foreignAttribute'], ' on ', edge['primaryRelation'])
-                #print(edge['foreignRelation'],fk,pk)
                 if self.schema_elements[fk].relation.type == 'relationship':
                     self.weights[fk][pk] = self.REL_EDGE
                 else:
                     self.weights[fk][pk] = self.KEY_EDGE
                 self.schema_elements[pk].in_elements += [self.schema_elements[fk]]
-        #print (self.weights)
-        #prange(len(self.weights.dims))
-        # print(self.weights.shape[0])
-        # for i in range(self.weights.shape[0]):
-        #     print('LINE ',(i+1))
-        #     for j in range(self.weights.shape[1]):
-        #         print(str(self.weights[i][j]) )
-        #     print('' )
-        print("compute distance")
+
         self.shortest_distance_compute()
-        print("computed distance")
-        # print(self.shortest_distance.shape[0])
-        # for i in range(self.shortest_distance.shape[0]):
-        #     for j in range(self.shortest_distance.shape[1]):
-        #         print(str(self.shortest_distance[i][j]) + ' ',)
-        #     print('')
 
 
 
@@ -156,7 +136,6 @@ class SchemaGraph:
         return edges
 
     def distance(self, source, destination):
-        #print(source, destination)
         return self.shortest_distance[source.element_id][destination.element_id]
 
 
@@ -229,24 +208,6 @@ class SchemaGraph:
 
 
         return result
-        # for element in self.schema_elements:
-        #     #print(element, relation_name)
-        #     if (element.type == "entity" or element.type == "relationship") and \
-        #         element.name == relation_name:
-        #             for attribute in element.attributes:
-        #                 j = i + 1
-        #                 if attribute.name == attribute_name:
-        #                     #print(j)
-        #                     result = j
-        #                     break
-        #                 j+=1
-
-
-        #             if result >= 0:
-        #                 break
-        #     i+=1
-
-        #return result
 
     def print_for_check(self):
         entities = self.schema_elements

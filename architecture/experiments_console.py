@@ -29,7 +29,7 @@ token_path = '/'.join(os.getcwd().split('/')[:-1] + ['zfiles', 'tokens.xml'])
 command_processor = CommandProcessor()
 tokens = et.parse(token_path)
 print("load")
-rdbms = RDBMS(config.database, config.connection)
+rdbms = RDBMS(config.connection)
 print("loaded")
 if config.defaultImplementation:
 	logger.debug('entering data')
