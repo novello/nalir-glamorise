@@ -1,4 +1,4 @@
-from data_structure.parse_tree_node import ParseTreeNode
+from .parse_tree_node import ParseTreeNode
 from graphviz import Digraph
 
 import sys

@@ -1,5 +1,5 @@
 from .mapped_schema_element import MappedSchemaElement
-from misc.similarity import similarity_words, if_schema_similar
+from ..misc.similarity import similarity_words, if_schema_similar
 
 class SchemaElement:
 
@@ -74,7 +74,7 @@ class SchemaElement:
         sql = 'select {0} from {1} where {2} {3} {4} LIMIT 0, 5'.format(self.name, self.relation.name, self.name, operator, number)
         cursor.execute(sql)
         mapped_schema_element = MappedSchemaElement(self)
-        
+
         for (line) in cursor:
             mapped_schema_element.mapped_values += [str(line[0])]
 

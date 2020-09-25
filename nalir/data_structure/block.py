@@ -1,12 +1,12 @@
 
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.sql_element import SQLElement
+from .parse_tree_node import ParseTreeNode
+from .sql_element import SQLElement
 
-from rdbms.schema_element import SchemaElement
-from rdbms.schema_graph import SchemaGraph
-from rdbms.edge import Edge
+from ..rdbms.schema_element import SchemaElement
+from ..rdbms.schema_graph import SchemaGraph
+from ..rdbms.edge import Edge
 
-from config import get_logger
+from ..config import get_logger
 logger = get_logger(__file__)
 
 

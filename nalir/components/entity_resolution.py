@@ -1,7 +1,7 @@
-from data_structure.entity_pair import EntityPair
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.query import Query
-from rdbms.schema_element import SchemaElement
+from ..data_structure.entity_pair import EntityPair
+from ..data_structure.parse_tree_node import ParseTreeNode
+from ..data_structure.query import Query
+from ..rdbms.schema_element import SchemaElement
 
 #class EntityResolution
 def entity_resolute(query):

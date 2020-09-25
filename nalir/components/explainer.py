@@ -1,10 +1,11 @@
-from data_structure.parse_tree import ParseTree
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.nl_sentence import NLSentence
-from data_structure.query import Query
-import misc.similarity as sim
-import components.node_inserter as node_inserter
-from config import get_logger
+from ..data_structure.parse_tree import ParseTree
+from ..data_structure.parse_tree_node import ParseTreeNode
+from ..data_structure.nl_sentence import NLSentence
+from ..data_structure.query import Query
+from ..misc import similarity as sim
+from . import node_inserter
+from ..config import get_logger
+
 logger = get_logger(__file__)
 
 # class Explainer

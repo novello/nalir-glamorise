@@ -1,10 +1,13 @@
-from data_structure.parse_tree import ParseTree
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.nl_sentence import NLSentence
+import sys
 from copy import deepcopy
 
+from ..data_structure.parse_tree import ParseTree
+from ..data_structure.parse_tree_node import ParseTreeNode
+from ..data_structure.nl_sentence import NLSentence
+
+
 # class NodeInserter
-import sys
+
 def add_number_of(parse_tree, core, number_of):
     number_of.parent = core.parent
     number_of.children.append(core)
@@ -14,7 +17,7 @@ def add_number_of(parse_tree, core, number_of):
     number_of.parent.children[idx] = number_of
     core.parent = number_of
     parse_tree.all_nodes.append(number_of)
-    
+
 def add_node(parse_tree, new_parent, child):
     added = deepcopy(child)
     added.children = []
@@ -22,22 +25,22 @@ def add_node(parse_tree, new_parent, child):
     new_parent.children.append(added)
     parse_tree.all_nodes.append(added)
     return added
-    
+
 def add_sub_tree(parse_tree, right, left):
     right_parent = right.parent
-    
+
     added = deepcopy(left)
     added.children.append(left)
     right.parent = added
     #del(right_parent.children[right_parent.children.index(right)])
     #right_parent.children.insert(right_parent.children.index(right), added)
-    
+
     idx = right_parent.children.index(right)
     right_parent.children[idx] = added
     added.parent = right_parent
-    
+
     added_children = added.children
-    
+
     for i in range(len(added_children)):
         if added_children[i] != right and \
         len(added_children[i].mapped_elements) != 0 and \
@@ -82,4 +85,3 @@ def add_a_sub_tree(parse_tree, new_parent, child):
         parse_tree.all_nodes.append(cur_node)
         for i in cur_node.children:
             node_list.append(i)
-

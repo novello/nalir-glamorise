@@ -1,10 +1,10 @@
 from copy import deepcopy
-from data_structure.tree import Tree
-from data_structure.parse_tree_node import ParseTreeNode
 import sys
 
-from config import ConfigHandler
-from config import get_logger
+from ..data_structure.tree import Tree
+from ..data_structure.parse_tree_node import ParseTreeNode
+from ..config import ConfigHandler
+from ..config import get_logger
 
 logger = get_logger(__file__)
 config = ConfigHandler()

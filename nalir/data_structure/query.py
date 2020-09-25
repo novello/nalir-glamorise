@@ -1,7 +1,6 @@
-    
-from rdbms.schema_graph import SchemaGraph
-from data_structure.sentence import Sentence
-from data_structure.parse_tree import ParseTree
+from ..rdbms.schema_graph import SchemaGraph
+from .sentence import Sentence
+from .parse_tree import ParseTree
 class Query(object):
     def __init__(self, query_input, graph):
         self.query_id = 0

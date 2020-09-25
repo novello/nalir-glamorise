@@ -1,8 +1,8 @@
-from data_structure.tree_node import TreeNode
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.parse_tree import ParseTree
-from data_structure.query import Query
-from rdbms.schema_graph import SchemaGraph
+from .tree_node import TreeNode
+from .parse_tree_node import ParseTreeNode
+from .parse_tree import ParseTree
+from .query import Query
+from ..rdbms.schema_graph import SchemaGraph
 
 
 class Tree(object):

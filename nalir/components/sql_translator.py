@@ -1,9 +1,9 @@
-from data_structure.parse_tree_node import ParseTreeNode
-from data_structure.parse_tree import ParseTree
-from data_structure.block import Block
-from data_structure.query import Query
-from rdbms.rdbms import RDBMS
-import components.node_inserter as node_inserter
+from ..data_structure.parse_tree_node import ParseTreeNode
+from ..data_structure.parse_tree import ParseTree
+from ..data_structure.block import Block
+from ..data_structure.query import Query
+from ..rdbms.rdbms import RDBMS
+from . import node_inserter as node_inserter
 
 #class SQLTranslator (object):
 
@@ -46,7 +46,7 @@ def block_split(query):
 
         for i in range(len(cur_node.children) - 1, -1, -1):
             node_list += [cur_node.children[i]]
-            
+
     blocks = query.blocks
     if len(blocks) == 0:
         return

@@ -1,18 +1,17 @@
 import os
+from copy import deepcopy
+
 from nltk.parse.stanford import StanfordDependencyParser as STDParser
 from nltk.parse.stanford import StanfordParser as STParser
-from copy import deepcopy
-from data_structure.parse_tree import ParseTree
+
+from ..data_structure.parse_tree import ParseTree
 #from nltk.parse.stanford import StanfordNeuralDependencyParser
 
 # Configure path
 #os.environ['CLASSPATH'] = "/home/rafael/jars/stanford-postagger-2018-02-27/:/home/rafael/jars/stanford-parser-full-2018-02-27/:/home/rafael/jars/stanford-ner-2018-02-27/"
 
-all_path = '/'.join(os.getcwd().split('/')[:-1] + ['jars', 'new_jars'])
-#print(all_path)
-
-os.environ['STANFORD_PARSER'] = all_path
-os.environ['STANFORD_MODELS'] = all_path #"/home/rafael/jars/stanford-postagger-2018-02-27/models:/home/rafael/jars/stanford-ner-2018-02-27/classifiers"
+# os.environ['STANFORD_PARSER'] = all_path
+# os.environ['STANFORD_MODELS'] = all_path #"/home/rafael/jars/stanford-postagger-2018-02-27/models:/home/rafael/jars/stanford-ner-2018-02-27/classifiers"
 
 ID_IDX = 0
 WORD_IDX = 1
@@ -22,19 +21,23 @@ PARENT_WORD = 4
 
 class StanfordParser:
 
-    def __init__(self,query):
+    def __init__(self,query,config):
+        jars_path = config.jars_path
+
+        os.environ['STANFORD_PARSER'] = jars_path
+        os.environ['STANFORD_MODELS'] = jars_path
+
         self.parse(query)
         #print('\n'.join(query.tree_table))
         self.build_tree(query)
         self.fix_conj(query)
-
 
     def parse(self,query):
         #print(query.sentence)
         #print('in parse method')
         self.depParser = STDParser(model_path="edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
         self.parser = STParser(model_path="edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
-        
+
         result = self.depParser.parse_sents([query.sentence.output_words])
 
         self.map_words = { 'ROOT' :  [0] }

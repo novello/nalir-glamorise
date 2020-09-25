@@ -12,18 +12,7 @@
 #     name: nalir-sbbd
 # ---
 
-# +
-from rdbms.rdbms import RDBMS
-from data_structure.query import Query
-from components.stanford_parser import StanfordParser
-from components.node_mapper import NodeMapper
-from components.entity_resolution import entity_resolute
-from components.tree_structure_adjustor import TreeStructureAdjustor
-from components.explainer import explain
-from components.sql_translator import translate
-
-from config import ConfigHandler
-# -
+from nalir import *
 
 config_json_text = '''{
     "connection":{
@@ -35,6 +24,7 @@ config_json_text = '''{
     "defaultImplementation": true,
     "loggingMode": "ERROR",
     "zfiles_path":"/home/pr3martins/Desktop/zfiles",
+    "jars_path":"/home/pr3martins/nalir-sbbd/jars"
 }
 '''
 config = ConfigHandler(reset=True,config_json_text=config_json_text)
@@ -46,7 +36,7 @@ query = Query(query_line,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser
 
-StanfordParser(query)
+StanfordParser(query,config)
 query.parse_tree
 
 # **Important Note**: The graph vizualitation requires the program [Graphviz](https://graphviz.org/) (alongside with the graphviz python package) to be installed.

@@ -7,11 +7,11 @@ from pandas import DataFrame
 import nltk
 from nltk.corpus import stopwords
 
-from misc.similarity import similarity, lemmatize, is_numeric
-from rdbms.mapped_schema_element import MappedSchemaElement
+from ..misc.similarity import similarity, lemmatize, is_numeric
+from ..rdbms.mapped_schema_element import MappedSchemaElement
 
 # from config import ConfigHandler
-from config import get_logger
+from ..config import get_logger
 
 logger = get_logger(__file__)
 

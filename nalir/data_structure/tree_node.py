@@ -1,5 +1,5 @@
-from data_structure.parse_tree_node import ParseTreeNode
-from rdbms.schema_graph import SchemaGraph
+from .parse_tree_node import ParseTreeNode
+from ..rdbms.schema_graph import SchemaGraph
 
 
 class TreeNode (object):
