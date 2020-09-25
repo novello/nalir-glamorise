@@ -1,0 +1,11 @@
+{
+	"connection":{
+		"host": "localhost",
+		"password":"paulo",
+		"user":"paulo",
+		"database":"mas"
+	},
+	"databaseConfig" :"mas",
+   	"defaultImplementation": true,
+    "loggingMode": "ERROR"
+}

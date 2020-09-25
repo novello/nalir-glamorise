@@ -1,0 +1,404 @@
+[
+    {
+        "foreignAttribute": "Country1", 
+        "foreignRelation": "borders", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Country2", 
+        "foreignRelation": "borders", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "city", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "city", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Capital", 
+        "foreignRelation": "country", 
+        "primaryRelation": "city", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "country", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "economy", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Continent", 
+        "foreignRelation": "encompasses", 
+        "primaryRelation": "continent", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "encompasses", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "ethnicGroup", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_desert", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_desert", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Desert", 
+        "foreignRelation": "geo_desert", 
+        "primaryRelation": "desert", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_estuary", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_estuary", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "geo_estuary", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_island", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_island", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Island", 
+        "foreignRelation": "geo_island", 
+        "primaryRelation": "island", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_lake", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Lake", 
+        "foreignRelation": "geo_lake", 
+        "primaryRelation": "lake", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_lake", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_mountain", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Mountain", 
+        "foreignRelation": "geo_mountain", 
+        "primaryRelation": "mountain", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_mountain", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_river", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "geo_river", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_river", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_sea", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea", 
+        "foreignRelation": "geo_sea", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_sea", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "geo_source", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "geo_source", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "geo_source", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Lake", 
+        "foreignRelation": "islandIn", 
+        "primaryRelation": "lake", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "islandIn", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Island", 
+        "foreignRelation": "islandIn", 
+        "primaryRelation": "island", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea", 
+        "foreignRelation": "islandIn", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "isMember", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Organization", 
+        "foreignRelation": "isMember", 
+        "primaryRelation": "organization", 
+        "primaryAttribute": "Abbreviation"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "lake", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "language", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "River", 
+        "foreignRelation": "located", 
+        "primaryRelation": "river", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "City", 
+        "foreignRelation": "located", 
+        "primaryRelation": "city", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Lake", 
+        "foreignRelation": "located", 
+        "primaryRelation": "lake", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "located", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea", 
+        "foreignRelation": "located", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "located", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "City", 
+        "foreignRelation": "locatedOn", 
+        "primaryRelation": "city", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "locatedOn", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "locatedOn", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Island", 
+        "foreignRelation": "locatedOn", 
+        "primaryRelation": "island", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea1", 
+        "foreignRelation": "mergesWith", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea2", 
+        "foreignRelation": "mergesWith", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Island", 
+        "foreignRelation": "mountainOnIsland", 
+        "primaryRelation": "island", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Mountain", 
+        "foreignRelation": "mountainOnIsland", 
+        "primaryRelation": "mountain", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "continent", 
+        "foreignRelation": "organization", 
+        "primaryRelation": "continent", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "City", 
+        "foreignRelation": "organization", 
+        "primaryRelation": "city", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "organization", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Province", 
+        "foreignRelation": "organization", 
+        "primaryRelation": "province", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "politics", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "population", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "province", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Capital", 
+        "foreignRelation": "province", 
+        "primaryRelation": "city", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Country", 
+        "foreignRelation": "religion", 
+        "primaryRelation": "country", 
+        "primaryAttribute": "Code"
+    }, 
+    {
+        "foreignAttribute": "Lake", 
+        "foreignRelation": "river", 
+        "primaryRelation": "lake", 
+        "primaryAttribute": "Name"
+    }, 
+    {
+        "foreignAttribute": "Sea", 
+        "foreignRelation": "river", 
+        "primaryRelation": "sea", 
+        "primaryAttribute": "Name"
+    }
+]

@@ -1,0 +1,7 @@
+{
+	"database": "mas",
+	"vocabulary_file": "data/masMinorWriteHash.json",
+	"attribute_file": "data/masAttributeHash.json",
+	"relation_file" : "new-repo/zfiles/masEdges.json",
+	"convert_dict_file": "data/mas_dict_hash.json"
+}

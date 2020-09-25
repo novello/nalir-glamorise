@@ -1,0 +1,751 @@
+[
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Length"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country1"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country2"
+            }
+        ], 
+        "type": "entity", 
+        "name": "borders"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Latitude"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "number", 
+                "name": "Population"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "number", 
+                "name": "Longitude"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "entity", 
+        "name": "city"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "number", 
+                "name": "Area"
+            }
+        ], 
+        "type": "entity", 
+        "name": "continent"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Area"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Code"
+            }, 
+            {
+                "type": "number", 
+                "name": "Population"
+            }, 
+            {
+                "type": "text", 
+                "name": "Capital"
+            }, 
+            {
+                "type": "text", 
+                "name": "Province"
+            }, 
+            {
+                "type": "text", 
+                "name": "Name",
+                "importance":"primary"
+            }
+        ], 
+        "type": "entity", 
+        "name": "country"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Area"
+            }, 
+            {
+                "type": "number", 
+                "name": "Longitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "Latitude"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }
+        ], 
+        "type": "entity", 
+        "name": "desert"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Service"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "number", 
+                "name": "Industry"
+            }, 
+            {
+                "type": "number", 
+                "name": "GDP"
+            }, 
+            {
+                "type": "number", 
+                "name": "Inflation"
+            }, 
+            {
+                "type": "number", 
+                "name": "Agriculture"
+            }
+        ], 
+        "type": "entity", 
+        "name": "economy"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Continent"
+            }, 
+            {
+                "type": "number", 
+                "name": "Percentage"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "entity", 
+        "name": "encompasses"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "number", 
+                "name": "Percentage"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "entity", 
+        "name": "ethnicGroup"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Desert"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_desert"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "River"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_estuary"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Island"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_island"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Lake"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_lake"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Mountain"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_mountain"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "River"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_river"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Sea"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_sea"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "River"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "geo_source"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Latitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "Height"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "text", 
+                "name": "Type"
+            }, 
+            {
+                "type": "text", 
+                "name": "Islands"
+            }, 
+            {
+                "type": "number", 
+                "name": "Longitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "Area"
+            }
+        ], 
+        "type": "entity", 
+        "name": "island"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "Lake"
+            }, 
+            {
+                "type": "text", 
+                "name": "River"
+            }, 
+            {
+                "type": "text", 
+                "name": "Island"
+            }, 
+            {
+                "type": "text", 
+                "name": "Sea"
+            }
+        ], 
+        "type": "entity", 
+        "name": "islandIn"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Organization"
+            }, 
+            {
+                "type": "text", 
+                "name": "Type"
+            }
+        ], 
+        "type": "entity", 
+        "name": "isMember"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Area"
+            }, 
+            {
+                "type": "text", 
+                "name": "River"
+            }, 
+            {
+                "type": "number", 
+                "name": "Depth"
+            }, 
+            {
+                "type": "number", 
+                "name": "Longitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "Altitude"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+
+            }, 
+            {
+                "type": "number", 
+                "name": "Latitude"
+            }, 
+            {
+                "type": "text", 
+                "name": "Type"
+            }
+        ], 
+        "type": "entity", 
+        "name": "lake"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "number", 
+                "name": "Percentage"
+            }
+        ], 
+        "type": "entity", 
+        "name": "language"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "River"
+            }, 
+            {
+                "type": "text", 
+                "name": "City"
+            }, 
+            {
+                "type": "text", 
+                "name": "Lake"
+            }, 
+            {
+                "type": "text", 
+                "name": "Province"
+            }, 
+            {
+                "type": "text", 
+                "name": "Sea"
+            }, 
+            {
+                "type": "text", 
+                "name": "Country"
+            }
+        ], 
+        "type": "entity", 
+        "name": "located"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "City"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Province"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Island"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "locatedOn"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Sea1"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Sea2"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "mergesWith"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Longitude"
+            }, 
+            {
+                "type": "text", 
+                "name": "Mountains"
+            }, 
+            {
+                "type": "number", 
+                "name": "Latitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "Height"
+            }, 
+            {
+                "type": "text", 
+                "name": "Type"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+
+            }
+        ], 
+        "type": "entity", 
+        "name": "mountain"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "Island"
+            }, 
+            {
+                "type": "fk", 
+                "name": "Mountain"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "mountainOnIsland"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "Established"
+            }, 
+            {
+                "type": "text", 
+                "name": "City"
+            }, 
+            {
+                "type": "text", 
+                "name": "Country"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Abbreviation"
+            }, 
+            {
+                "type": "text", 
+                "name": "Province"
+            }, 
+            {
+                "type": "text", 
+                "name": "Name",
+                "importance":"primary"
+
+            }
+        ], 
+        "type": "entity", 
+        "name": "organization"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "Dependent"
+            }, 
+            {
+                "type": "text", 
+                "name": "Government"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "text", 
+                "name": "Independence"
+            }
+        ], 
+        "type": "entity", 
+        "name": "politics"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Population_Growth"
+            }, 
+            {
+                "type": "number", 
+                "name": "Infant_Mortality"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }
+        ], 
+        "type": "entity", 
+        "name": "population"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "text", 
+                "name": "CapProv"
+            }, 
+            {
+                "type": "number", 
+                "name": "Population"
+            }, 
+            {
+                "type": "number", 
+                "name": "Area"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+
+            }, 
+            {
+                "type": "text", 
+                "name": "Capital"
+            }
+        ], 
+        "type": "entity", 
+        "name": "province"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "Percentage"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Country"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }
+        ], 
+        "type": "entity", 
+        "name": "religion"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "number", 
+                "name": "SourceAltitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "SourceLongitude"
+            }, 
+            {
+                "type": "text", 
+                "name": "Lake"
+            }, 
+            {
+                "type": "number", 
+                "name": "EstuaryLongitude"
+            }, 
+            {
+                "type": "number", 
+                "name": "SourceLatitude"
+            }, 
+            {
+                "type": "text", 
+                "name": "Sea"
+            }, 
+            {
+                "type": "pk", 
+                "name": "Name",
+                "importance":"primary"
+            }, 
+            {
+                "type": "number", 
+                "name": "EstuaryLatitude"
+            }, 
+            {
+                "type": "text", 
+                "name": "Mountains"
+            }, 
+            {
+                "type": "number", 
+                "name": "Length"
+            }, 
+            {
+                "type": "text", 
+                "name": "River"
+            }
+        ], 
+        "type": "entity", 
+        "name": "river"
+    }
+]

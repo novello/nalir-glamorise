@@ -1,0 +1,254 @@
+[
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "person_id"
+            }, 
+            {
+                "type": "pk", 
+                "name": "character_played"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "pk", 
+                "name": "movie_id"
+            }
+        ], 
+        "type": "entity", 
+        "name": "actor"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "biography"
+            }, 
+            {
+                "type": "text", 
+                "name": "written_by"
+            }, 
+            {
+                "type": "pk", 
+                "name": "id"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "number", 
+                "name": "person_id"
+            }
+        ], 
+        "type": "entity", 
+        "name": "biography"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "id"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "number", 
+                "name": "movie_id"
+            }, 
+            {
+                "type": "text", 
+                "name": "link_type"
+            }, 
+            {
+                "type": "text", 
+                "name": "related_movie"
+            }
+        ], 
+        "type": "entity", 
+        "name": "link"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "text", 
+                "name": "runtime"
+            }, 
+            {
+                "type": "text", 
+                "name": "tagline"
+            }, 
+            {
+                "type": "pk", 
+                "name": "id"
+            }, 
+            {
+                "type": "text", 
+                "name": "color"
+            }, 
+            {
+                "type": "text", 
+                "name": "url"
+            }, 
+            {
+                "type": "text", 
+                "name": "title"
+            }, 
+            {
+                "type": "float", 
+                "name": "rating"
+            }, 
+            {
+                "type": "text", 
+                "name": "mpaa"
+            }, 
+            {
+                "type": "text", 
+                "name": "plot"
+            }
+        ], 
+        "type": "entity", 
+        "name": "movie"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "attribute"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "movie_attribute"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "value"
+            }, 
+            {
+                "type": "pk", 
+                "name": "id"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "number", 
+                "name": "movie_id"
+            }, 
+            {
+                "type": "text", 
+                "name": "movie_attribute"
+            }
+        ], 
+        "type": "entity", 
+        "name": "movie_value"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "text", 
+                "name": "death_date"
+            }, 
+            {
+                "type": "text", 
+                "name": "name"
+            }, 
+            {
+                "type": "text", 
+                "name": "spouse"
+            }, 
+            {
+                "type": "text", 
+                "name": "birth_name"
+            }, 
+            {
+                "type": "text", 
+                "name": "height"
+            }, 
+            {
+                "type": "text", 
+                "name": "birth_date"
+            }, 
+            {
+                "type": "pk", 
+                "name": "id"
+            }
+        ], 
+        "type": "entity", 
+        "name": "person"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "fk", 
+                "name": "attribute"
+            }
+        ], 
+        "type": "relationship", 
+        "name": "person_attribute"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "text", 
+                "name": "person_attribute"
+            }, 
+            {
+                "type": "text", 
+                "name": "value"
+            }, 
+            {
+                "type": "pk", 
+                "name": "id"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "number", 
+                "name": "person_id"
+            }
+        ], 
+        "type": "entity", 
+        "name": "person_value"
+    }, 
+    {
+        "attributes": [
+            {
+                "type": "pk", 
+                "name": "person_id"
+            }, 
+            {
+                "type": "pk", 
+                "name": "role"
+            }, 
+            {
+                "type": "text", 
+                "name": "filename"
+            }, 
+            {
+                "type": "pk", 
+                "name": "movie_id"
+            }
+        ], 
+        "type": "entity", 
+        "name": "role"
+    }
+]

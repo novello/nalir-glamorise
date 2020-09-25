@@ -1,0 +1,47 @@
+mysql-connector-python
+nltk # precisa ser below 3.4 (erro python 3)
+numpy
+gensim
+ijson
+
+
+import nltk
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'Mondial.size' doesn't exist
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'mas.size' doesn't exist
+rodar scripts/create_size_table.py
+
+
+scripts/create_size_table.py uses fixed connection string
+
+na hora de rodar o experiments/console tem que informar o banco como parametro
+do argvs ou então utilizar o comando "use mas" dentro do programa
+
+A queries devem ser inseridas no seguinte formato:
+
+#query return me the capital of brazil
+#query return me all the organizations in "North America".
+
+removi diretórios inverted_index, evaluation e a maioria dos scripts
+
+Removi a chamada ao módulo inverted_index.LateCandidateMapper dentro do arquivo architecture/experiments_console.py
+consequentemente removi o if not defaultImplementation
+removi
+from misc.similarity import load_model
+from data_structure.parse_tree import ParseTree
+
+
+
+Dentro do NodeMapper, removi a chamada a candidate_map, que usava o late. Também removi os parametros referentes ao late no NodeMapper.phrase_process
+
+
+Existem vários comentários no components.tree_structure_adjustor, posso apagar todos?
+
+entity_resolute e explain não são classes? Por quê?
+
+zfiles vai ficar mesmo?
+
+porque a pasta new_jars em vez de apenas jars?

@@ -1,0 +1,62 @@
+[
+    {
+        "foreignAttribute": "movie_id", 
+        "foreignRelation": "link", 
+        "primaryRelation": "movie", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "person_id", 
+        "foreignRelation": "person_value", 
+        "primaryRelation": "person", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "person_attribute", 
+        "foreignRelation": "person_value", 
+        "primaryRelation": "person_attribute", 
+        "primaryAttribute": "attribute"
+    }, 
+    {
+        "foreignAttribute": "movie_id", 
+        "foreignRelation": "movie_value", 
+        "primaryRelation": "movie", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "movie_attribute", 
+        "foreignRelation": "movie_value", 
+        "primaryRelation": "movie_attribute", 
+        "primaryAttribute": "attribute"
+    }, 
+    {
+        "foreignAttribute": "movie_id", 
+        "foreignRelation": "role", 
+        "primaryRelation": "movie", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "person_id", 
+        "foreignRelation": "role", 
+        "primaryRelation": "person", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "movie_id", 
+        "foreignRelation": "actor", 
+        "primaryRelation": "movie", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "person_id", 
+        "foreignRelation": "actor", 
+        "primaryRelation": "person", 
+        "primaryAttribute": "id"
+    }, 
+    {
+        "foreignAttribute": "person_id", 
+        "foreignRelation": "biography", 
+        "primaryRelation": "person", 
+        "primaryAttribute": "id"
+    }
+]
