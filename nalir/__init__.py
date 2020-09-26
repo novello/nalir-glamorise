@@ -6,5 +6,5 @@ from .components.entity_resolution import entity_resolute
 from .components.tree_structure_adjustor import TreeStructureAdjustor
 from .components.explainer import explain
 from .components.sql_translator import translate
-
+from .architecture.experiment_query import run_query
 from .config import ConfigHandler

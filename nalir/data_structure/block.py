@@ -188,7 +188,6 @@ class Block(object):
                 choice = -1
                 if inner_related is not None and inner_related.choice != None:
                     choice = inner_related.choice
-                    logger.error("Error by choice none")
                 if inner_related is not None and inner_related in self.inner_blocks[i].all_nodes:
                     left = SQLElement(main_block, inner_related)
                     right = SQLElement(self.inner_blocks[i], inner_related)
@@ -227,7 +226,7 @@ class Block(object):
         self.sql += "SELECT "
         if self.outer_block == None:
             self.sql += "DISTINCT "
-        # print(self.select_elements)
+        
         for i in range(len(self.select_elements)):
             if i != 0:
                 self.sql += ", "

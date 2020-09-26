@@ -63,15 +63,12 @@ class NodeMapper:
             #print (cur_size)
             i = 0
             while i < len(parse_tree.all_nodes):
-            #for i in range(len(parse_tree.all_nodes)):
-                #print(i, len(parse_tree.all_nodes), parse_tree.all_nodes[i])
                 cur_node = parse_tree.all_nodes[i]
 
                 if cur_node.token_type == 'NA' and NodeMapper.is_of_type(tokens, parse_tree, cur_node, 'FT', 'function'):
                     cur_node.token_type = 'FT'
 
                 elif cur_node.token_type == 'NA' and NodeMapper.is_of_type(tokens, parse_tree, cur_node, 'OT', 'operator'):
-                    #print("X > ", cur_node.label)
                     cur_node.token_type = 'OT'
 
                 elif cur_node.token_type == 'NA' and NodeMapper.is_of_type(tokens, parse_tree, cur_node, 'OBT', None):
@@ -81,16 +78,13 @@ class NodeMapper:
                     cur_node.token_type = 'VT'
 
                 elif cur_node.token_type == 'NA' and (cur_node.pos.startswith('NN') or cur_node.pos == 'CD'):
-                    #print("{0} is name".format(cur_node.label))
                     cur_node.token_type = 'NTVT'
 
                 elif cur_node.token_type == 'NA' and cur_node.pos.startswith('JJ'):
-                    #print("{0} is name".format(cur_node.label))
                     cur_node.token_type = 'JJ'
 
                 elif cur_node.token_type == 'NA' and NodeMapper.is_of_type(tokens, parse_tree, cur_node, 'QT', 'quantity'):
                     cur_node.token_type = 'QT'
-                #print (cur_node.token_type, cur_node.pos)
                 i+=1
 
     @staticmethod

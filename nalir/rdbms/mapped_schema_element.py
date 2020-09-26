@@ -49,8 +49,6 @@ class MappedSchemaElement:
 
         if len(self.mapped_values) > 0 and self.choice >= 0:
             result += '{0}'.format(self.mapped_values[0].encode('ascii', 'ignore'))
-            # for mapped_value in self.mapped_values:
-            #     result += '{0}'.format(mapped_value[:10].encode('ascii', 'ignore'))
         else:
             result += 'choice == {0}'.format(self.choice)
         return result

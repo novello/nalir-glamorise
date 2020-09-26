@@ -21,7 +21,6 @@ config_json_text = '''{
         "user":"paulo",
         "database":"mas"
     },
-    "defaultImplementation": true,
     "loggingMode": "ERROR",
     "zfiles_path":"/home/pr3martins/Desktop/zfiles",
     "jars_path":"/home/pr3martins/nalir-sbbd/jars"

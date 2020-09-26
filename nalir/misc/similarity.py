@@ -9,7 +9,8 @@ global lemmatizer
 
 lemmatizer = WordNetLemmatizer()
 model = None
-#class SimilarityFuctions:
+
+
 def postag(word):
     l = pos_tag(word_tokenize(word))
     if len(l) == 1:
@@ -40,7 +41,6 @@ def is_numeric(e):
 
 def similarity(tree_node, element):
     if element.similarity > 0:
-        #print('dont calculate to ',tree_node.label,' and ', element.schema_element.relation.name, element.schema_element.name, element.similarity)
         return
 
     #print('similarity btw ', tree_node.label, element.schema_element.relation.name, element.schema_element.name)
