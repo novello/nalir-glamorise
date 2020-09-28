@@ -32,6 +32,12 @@ After setting up MySQL database, you need to download the jars file needed to ru
 ``` bash
     $ unzip /path/to/jars.zip
 ```
+## Setting up the environment 
+
+``` bash
+   (venv) $ pip install -r requirements.txt
+```
+
 ## Setting up the configuration object
 
 After unzip the jars, you need to put the path where you extract the jars into the configuration object that are in the Jupyter.
