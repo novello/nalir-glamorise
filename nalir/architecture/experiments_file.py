@@ -76,12 +76,10 @@ with open(query_file, 'r') as f:
             f_output.write("|{0}|{1}||\n".format(processed_line, \
                 queryOne.translated_sql.replace('\n', ' ')))
         else:
-            #print([x[0] for x in response[2]][:size])
             f_output.write("|{0}|{1}|{2}|\n".format(processed_line, \
                 result_map, \
                 queryOne.translated_sql.replace('\n', ' ')))
         
-#        results = []
         f_output.flush()
 
 

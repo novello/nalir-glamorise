@@ -15,20 +15,16 @@ class SchemaElement:
 
     def is_schema_exist(self, tag):
         mapped_schema_element = None
-        #print ('is {0} similar to {1}?'.format(self.name, tag))
-        if self == self.relation.default_attribute:
-            #print self.name, 'is default to', self.relation.name
+        if self == self.relation.default_attribute:  
             if if_schema_similar(self.relation.name, tag) or if_schema_similar(self.name, tag):
                 mapped_schema_element = MappedSchemaElement(self)
-                #part1 = similarity_words(self.relation.name, tag)
-                #part2 = similarity_words(self.name,tag)
                 mapped_schema_element.similarity = similarity_words(self.relation.name, tag)
                 mapped_schema_element.similarity = 1 - (1 - mapped_schema_element.similarity) * (1 -
                     similarity_words(self.name,tag))
-                #print("{0},{1}, {2}, {3}".format(self.relation.name, part1, part2, self.name))
+                
 
         elif if_schema_similar  (self.name, tag):
-            #print(self.name + ' is  simalar to ' +  tag);
+            
             mapped_schema_element = MappedSchemaElement(self)
             mapped_schema_element.similarity = similarity_words(self.name, tag)
 
@@ -36,8 +32,7 @@ class SchemaElement:
 
 
     def is_text_exist(self, value, connection):
-        sql = 'select * from size WHERE size.relation = \'{0}\''.format(self.relation.name)
-        #print(sql)
+        sql = 'select * from size WHERE size.relation = \'{0}\''.format(self.relation.name) 
         cursor = connection.cursor()
         cursor.execute(sql)
         size = 0
@@ -52,12 +47,10 @@ class SchemaElement:
             sql = 'select {0} from {1} where {2} like \'%{3}%\' LIMIT 0,2000'.format(self.name, self.relation.name, self.name ,value)
 
         else:
-            sql = 'select {0} from {1} where match({2}) against(\'{3}\') LIMIT 0,2000'.format(self.name, self.relation.name, self.name ,value)
-        #print(sql)
-        #print(sql)
+            sql = 'select {0} from {1} where match({2}) against(\'{3}\') LIMIT 0,2000'.format(self.name, self.relation.name, self.name ,value) 
         mapped_schema_element = MappedSchemaElement(self)
         cursor = connection.cursor()
-        #print(sql)
+        
         cursor.execute(sql)
         for (line) in cursor:
             mapped_schema_element.mapped_values += [line[0]]
@@ -83,12 +76,6 @@ class SchemaElement:
             return mapped_schema_element
 
         return None
-
-    # def __eq__(self,other):
-    #     if other is None or type(self) != type(other):
-    #         return False
-
-    #     return other.element_id == other.element_id
 
 
     def print_for_check(self):

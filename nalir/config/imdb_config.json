@@ -1,7 +1,0 @@
-{
-	"database": "imdb_v02",
-	"vocabulary_file": "data/imdbWriteHash.json",
-	"attribute_file": "data/imdbAttributeHash.json",
-	"relation_file" : "new-repo/zfiles/imdb_v02Edges.json",
-	"convert_dict_file": "data/imdbDictHash.json"
-}

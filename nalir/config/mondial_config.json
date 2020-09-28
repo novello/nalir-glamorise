@@ -1,7 +1,0 @@
-{
-	"database": "Mondial",
-	"vocabulary_file": "data/mondialWriteHash.json",
-	"attribute_file": "data/mondialAttributeHash.json",
-	"relation_file" : "new-repo/zfiles/MondialEdges.json",
-	"convert_dict_file": "data/Mondial_dict_hash.json"
-}

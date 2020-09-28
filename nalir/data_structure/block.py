@@ -333,5 +333,4 @@ class Block(object):
         for i in self.inner_blocks:
             result += "block_" + str(i.block_id) + " "
 
-        #result +=  "\n" + self.sql + "\n"
         return result

@@ -6,8 +6,7 @@ from ..rdbms.schema_graph import SchemaGraph
 
 
 class Tree(object):
-    def __init__(self, parse_tree):
-        # print(parse_tree)
+    def __init__(self, parse_tree): 
         self.all_nodes = []
         for node in parse_tree.all_nodes:
             self.all_nodes += [TreeNode(node)]
@@ -48,24 +47,21 @@ class Tree(object):
 
         self.weight = 1.0
         self.invalid = 0
-        #print('zeroed invalid: ', self.invalid)
+        
         for i in range(len(self.all_nodes)):
             self.all_nodes[i].node_evaluate(schema_graph, query)
 
         for i in range(len(self.all_nodes)):
             node = self.all_nodes[i]
             if not node.up_valid:
-                #print('node invalid: ', node.label)
+                
                 self.invalid += 1
             for j in node.have_children:
                 if not j:
-                    #print('child node invalid from ', node.label)
+                    
                     self.invalid += 1
             self.weight *= node.weight
 
-        # if self.invalid > 0:
-        #     print(self)
-        #print('all invalid: ', self.invalid)
 
     def move_sub_tree(self, new_parent, node):
         self.invalid = 0
@@ -78,13 +74,10 @@ class Tree(object):
         is_parent = False
         temp = new_parent
         while temp is not None:
-            if temp.parent is not None and temp == node:
-                #print (node.label, 'is parent of', new_parent.label)
+            if temp.parent is not None and temp == node:                
                 is_parent = True
                 break
             temp = temp.parent
-            # print(temp)
-
         if is_parent == False:
             old_parent = node.parent
             old_parent.children.remove(node)
@@ -94,13 +87,12 @@ class Tree(object):
 
         elif new_parent.parent == node and len(new_parent.children) == 0 and (new_parent.token_type == "OT" or
                                                                               new_parent.token_type == "FT"):
-            #print (node.label, [x.label for x in node.children], new_parent.label)
+            
             # getting parrent from current node
             node_parent = node.parent
             # setting new_parent to child of previous parent
             node_parent.children.append(new_parent)
             # remove new_parent of its oldests parent list
-            # = node.children.remove(new_parent)
             new_parent.parent.children.remove(new_parent)
             # setting parent of new_parent
             new_parent.parent = node_parent
@@ -108,9 +100,6 @@ class Tree(object):
             node_parent.children.remove(node)
             # setting new parent to node
             node.parent = new_parent
-            #print ('node_parent: ', node_parent.label, 'current_node: ', node.label, 'chidren: ',[x.label for x in node.children], 'child: ', new_parent.label)
-            # remove from current child list
-            # node.children.remove(new_parent) already execute it on new_parent.parent.remove(node)
             # setting to new_parent list
             new_parent.children.append(node)
             return True
@@ -150,11 +139,8 @@ class Tree(object):
         h = 1
         for i in l:
             h = 31*h + hash(i)
-        #print(l, hash(frozenset(l)), h%10000000)
         self.hash_num = h % 100000
-        # return h%10000000
         return self.hash_num
-        # return h%10000000
 
     def compare_to(self, tree):
         if self.weight*100-self.cost > tree.weight*100-tree.cost:
@@ -174,10 +160,7 @@ class Tree(object):
             cur_node = node_list.pop(len(node_list) - 1)
             cur_level = level_list.pop(len(level_list) - 1)
             result += str((cur_level * 4) * " ")
-            # for i in range(cur_level):
-            #     result += 4 * " "
             result += "(" + str(cur_node.node_id) + ")"
-            # ':' + cur_node.token_type+ ' p:' +  str(cur_node.parent) + "\n"
             result += cur_node.label + '\n'
             for i in range(len(cur_node.children)):
                 node_list.append(cur_node.children[len(cur_node.children)-i-1])

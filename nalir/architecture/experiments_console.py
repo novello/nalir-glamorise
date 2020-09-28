@@ -34,7 +34,7 @@ print("loaded")
 if config.defaultImplementation:
 	logger.debug('entering data')
 
-# query_line = input("Input a query: ")
+
 query_line='#query return me the publications of "H. V. Jagadish".'
 print(query_line)
 query_processed = command_processor.process_input(query_line)
@@ -71,7 +71,3 @@ while query_processed != CommandProcessor.EXIT_COMMAND:
 
 	query_line = input("Input a query: ")
 	query_processed = command_processor.process_input(query_line)
-
-
-	#file.write('{0}|{1}\n'.format(query_line, query.translated_sql))
-	#file.flush()

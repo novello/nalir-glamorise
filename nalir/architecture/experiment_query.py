@@ -23,4 +23,4 @@ def run_query(nl_query, rdbms, config):
     TreeStructureAdjustor.tree_structure_adjust(query,rdbms)
     translate(query, rdbms)
     explain(query)
-    return query.translated_sql
+    return query.translated_sql.replace('\n', ' ')

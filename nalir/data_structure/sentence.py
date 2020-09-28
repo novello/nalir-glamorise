@@ -11,7 +11,7 @@ class Sentence (object):
             self.output_words.append(word)
             i = len(self.output_words)
             self.word_dict[word] = i
-        #print(self.output_words)    
+        
     def word_split(self, query):
         cur_word = ''
         while query[-1] == '.'or query[-1] == '\t' or query[-1] == ' ' or\
@@ -23,17 +23,7 @@ class Sentence (object):
             c = query[i]
             if c == '\t' or c == '\n' or c == ' ':
                 if if_cited == False:
-                    idx = 0
-
-                    # try:
-                    #     idx = cur_word.index(' ')
-                    # except ValueError:
-                    #     print('x:',cur_word)
-                    #     idx = -1
-
-                    # if idx > 0:
-                    #     cur_word = cur_word.replace(' ', '_')
-                        
+                    idx = 0                        
                     if len(cur_word) > 0:
                         self.word_list.append(cur_word)
                     
@@ -59,8 +49,8 @@ class Sentence (object):
             elif c == ',':
                 if if_cited == False:
                     self.word_list.append(cur_word)
-                    #print("if not cited comma")
-                    #self.word_list.append(",")
+                    
+                    
                     cur_word = ""
                     while i < len(query)-1 and (query[i+1] == '\t' or query[i+1] == '\n' or\
                      query[i+1] == ' ' or query[i+1] == ','):

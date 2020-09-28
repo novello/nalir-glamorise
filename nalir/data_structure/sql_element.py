@@ -2,7 +2,6 @@ from ..rdbms.schema_element import SchemaElement
 from ..config import get_logger
 
 from .parse_tree_node import ParseTreeNode
-#from data_structure.block import Block
 
 logger = get_logger(__file__)
 

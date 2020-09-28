@@ -1,11 +1,11 @@
 {
-	"connection":{
-		"host": "localhost",
-		"password":"paulo",
-		"user":"paulo",
-		"database":"mas"
-	},
-	"databaseConfig" :"mas",
-	"defaultImplementation": true,
-  "loggingMode": "ERROR"
+    "connection":{
+        "host": "localhost",
+        "password":"password",
+        "user":"user",
+        "database":"mas"
+    },
+    "loggingMode": "ERROR",
+    "zfiles_path":"path/to/zfiles",
+    "jars_path":"/path/to/jars"
 }

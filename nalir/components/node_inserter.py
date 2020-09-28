@@ -6,7 +6,6 @@ from ..data_structure.parse_tree_node import ParseTreeNode
 from ..data_structure.nl_sentence import NLSentence
 
 
-# class NodeInserter
 
 def add_number_of(parse_tree, core, number_of):
     number_of.parent = core.parent
@@ -52,7 +51,6 @@ def add_sub_tree(parse_tree, right, left):
                 if added.children[i] in parse_tree.all_nodes:
                     parse_tree.all_nodes.remove(added.children[i])
                 else:
-                    print(parse_tree)
                     sys.exit()
                 break
 

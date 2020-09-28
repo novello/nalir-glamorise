@@ -5,7 +5,7 @@ from ..data_structure.query import Query
 from ..rdbms.rdbms import RDBMS
 from . import node_inserter as node_inserter
 
-#class SQLTranslator (object):
+
 
 def translate(query, db):
     pre_structure_adjustor(query)
@@ -57,7 +57,6 @@ def block_split(query):
         cur_root = blocks[i].block_root
 
         while cur_root.parent is not None:
-            # cur_root.parent == cur_root or
             if  cur_root.parent.token_type == "CMT":
                 main_block = blocks[i]
                 break

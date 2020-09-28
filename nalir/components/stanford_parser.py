@@ -28,13 +28,13 @@ class StanfordParser:
         os.environ['STANFORD_MODELS'] = jars_path
 
         self.parse(query)
-        #print('\n'.join(query.tree_table))
+        
         self.build_tree(query)
         self.fix_conj(query)
 
     def parse(self,query):
-        #print(query.sentence)
-        #print('in parse method')
+        
+        
         self.depParser = STDParser(model_path="edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
         self.parser = STParser(model_path="edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
 
@@ -50,7 +50,7 @@ class StanfordParser:
             self.map_words[query.sentence.output_words[idx]] += [idx + 1]
             self.map_words_index[query.sentence.output_words[idx]] = 0
 
-        #print(self.map_words)
+        
         self.parent_index = deepcopy(self.map_words_index)
         item = next(result)
         dep = next(item)
@@ -61,7 +61,7 @@ class StanfordParser:
         dep_dict = {}
 
         for item in dep_root_item + dependency_list:
-            #print(item[0][0], item[2][0])
+            
             process_items = [item[0], item[2]]
 
             if dep_dict.get(item[2][0], None) is None:
@@ -87,7 +87,7 @@ class StanfordParser:
 
             tree_table_item = [real_idx, word.replace('_',' '), tag, parent_word_idx, parent_word, relation]
             tree_table += [tree_table_item]
-            #print(tree_table_item)
+            
 
             if relation.startswith('conj'):
                 query.conj_table += [str(parent_word_idx)+' '+str(real_idx)]
@@ -96,10 +96,10 @@ class StanfordParser:
             self.parent_index[word] = parent_idx + 1
 
         query.tree_table = tree_table
-        #print(query.tree_table)
+        
 
     def build_tree(self,query):
-        #print('in build tree method')
+        
         query.parse_tree = ParseTree()
         done_list = [False] * len(query.tree_table)
         i = 0
@@ -116,7 +116,7 @@ class StanfordParser:
             for i in range(len(query.tree_table)):
                 if not done_list[i]:
                     if query.parse_tree.build_node(query.tree_table[i]):
-                        #print(query.parse_tree)
+                        
                         done_list[i] = True
                         break
 
@@ -128,11 +128,11 @@ class StanfordParser:
                     break
 
     def fix_conj(self, query):
-        #print('in fix conj')
+        
         if len(query.conj_table) == 0:
             return
         i = 0
-        #print(query.conj_table)
+        
         for conj_table_item in query.conj_table:
             numbers = conj_table_item.split(' ')
             gov_idx = int(numbers[0])

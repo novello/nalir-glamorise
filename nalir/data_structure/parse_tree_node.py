@@ -57,8 +57,3 @@ class ParseTreeNode:
         else:
             return False
 
-
-    # def __eq__(self, other):
-    #     if other and type(self) == type(other):
-    #         return self.node_id == other.node_id
-    #     return False

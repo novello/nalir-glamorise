@@ -10,7 +10,6 @@ from nltk.corpus import stopwords
 from ..misc.similarity import similarity, lemmatize, is_numeric
 from ..rdbms.mapped_schema_element import MappedSchemaElement
 
-# from config import ConfigHandler
 from ..config import get_logger
 
 logger = get_logger(__file__)
@@ -45,7 +44,6 @@ class NodeMapper:
                 cur_node.token_type = 'NEG'
         i = 0
         while i < len(parse_tree.all_nodes):
-        #for i in range(len(parse_tree.all_nodes)):
             cur_node = parse_tree.all_nodes[i]
             if cur_node.token_type == 'NA' and cur_node.relationship == 'mwe':
                 if cur_node.word_order > cur_node.parent.word_order:
@@ -60,7 +58,6 @@ class NodeMapper:
         cur_size = 0
         while cur_size != len(parse_tree.all_nodes):
             cur_size = len(parse_tree.all_nodes)
-            #print (cur_size)
             i = 0
             while i < len(parse_tree.all_nodes):
                 cur_node = parse_tree.all_nodes[i]
@@ -104,9 +101,9 @@ class NodeMapper:
         elif type == 2:
             tmp_label = node.label.split(' ')[0]
             label = lemmatize(tmp_label).lower()
-        #print(len(tokens.iter(token)))
+        
         tokenE = next(tokens.iter(token)) #.__next__()
-        # print(tokenE)
+        
         for phrase_item in tokenE.iter('phrase'):
             phrase_text = phrase_item.text.strip()
             if len(phrase_text.split(' ')) == 1 and not (' ' in  label):
@@ -115,8 +112,7 @@ class NodeMapper:
 
                     if tag is not None:
                         try:
-                            attr_text = next(phrase_item.iter(tag)).text.strip()
-                            #print(attr_text)
+                            attr_text = next(phrase_item.iter(tag)).text.strip()         
                             node.function = attr_text
                         except:
                             node.function = '.'
@@ -178,10 +174,8 @@ class NodeMapper:
         i = 0
         while i < len(parse_tree.all_nodes):
             parse_tree_node = parse_tree.all_nodes[i]
-            if parse_tree_node.token_type == 'NA' or parse_tree_node.token_type == 'QT':
-                #print('removing ', parse_tree_node.label)
-                cur_node = parse_tree_node
-                #print (cur_node.label)
+            if parse_tree_node.token_type == 'NA' or parse_tree_node.token_type == 'QT':   
+                cur_node = parse_tree_node  
                 if cur_node.label in ['on', 'in', 'of', 'by'] and len(cur_node.children):
                     cur_node.children[0].prep = cur_node.label
                 if cur_node.token_type == 'QT':
@@ -201,10 +195,6 @@ class NodeMapper:
             if tree_node.token_type == 'NTVT' or tree_node.token_type == 'JJ':
                 db.is_schema_exist(tree_node)
                 db.is_text_exist(tree_node)
-
-                # for element in tree_node.mapped_elements:
-                #   print('xxxx', tree_node.label, element.schema_element.relation.name,element.schema_element.name, element.similarity)
-
                 if len(tree_node.mapped_elements) == 0:
                     tree_node.token_type = 'NA'
 
@@ -216,36 +206,29 @@ class NodeMapper:
                     OT = tree_node.children[0].function
                 db.is_num_exist(OT, tree_node)
                 tree_node.token_type = 'VTNUM'
-        #print('-------')
-        #print(parse_tree)
+        
+        
 
     @staticmethod
     def individual_rank(query):
         tree_nodes = query.parse_tree.all_nodes
         for i in range(len(tree_nodes)):
             if len(tree_nodes[i].mapped_elements) == 0:
-                #print ('{0} has none mapped elements'.format(tree_nodes[i].label))
                 continue
 
             tree_node = tree_nodes[i]
             mapped_list = tree_node.mapped_elements
-            #print(mapped_list)
+            
             for j in range(len(mapped_list)):
                 mapped_element = mapped_list[j]
-                #print(mapped_element)
                 similarity(tree_node, mapped_element)
 
             #TODO: check how to sort this list
             mapped_list.sort(key=lambda elem : elem.similarity, reverse=True)
-            #print('similarities for ', tree_node.label)
-            # for k in range(len(mapped_list)):
-            #   print(tree_node.label,  mapped_list[k].schema_element.relation.name,\)
-            #   mapped_list[k].schema_element.name, mapped_list[k].similarity
-
             tree_node.mapped_elements = mapped_list
 
         tree_nodes = query.parse_tree.all_nodes
-        #print(query.parse_tree)
+        
         for i in range(len(tree_nodes)):
             tree_node = tree_nodes[i]
             if  tree_nodes[i].token_type != 'NTVT':
@@ -258,19 +241,19 @@ class NodeMapper:
                 NT = mapped_list[j]
                 k = j + 1
                 while k < len(mapped_list):
-                #for k in range(j + 1, len(mapped_list)):
+                
                     VT = mapped_list[k]
                     if len(NT.mapped_values) == 0 and  (len(VT.mapped_values) != 0)  \
                     and NT.schema_element == VT.schema_element:
                         if NT.similarity >= VT.similarity:
                             VT.similarity = NT.similarity
-                            #print(VT.similarity, NT.similarity)
+                            
                             VT.choice = -1
                             VT_position = k
                             NT_idx = j
                             tree_node.mapped_elements[NT_idx] = VT
                             tree_node.mapped_elements[VT_position] = NT
-                            #print(VT.similarity, NT.similarity)
+                            
                         delete_list += [VT_position]
                     k+=1
 
@@ -279,9 +262,6 @@ class NodeMapper:
                 if not(j in delete_list):
                     clean_mapped_elements.append(mapped_list[j])
             tree_node.mapped_elements = clean_mapped_elements
-            #print ('---------------')
-            #print(query.parse_tree)
-
 
     @staticmethod
     def group_ranking(query, db):
@@ -295,8 +275,6 @@ class NodeMapper:
                 if len(node.mapped_elements) == 1:
                     score = 1
                 else:
-                    #print (node.label)
-                    #print(node.mapped_elements)
                     score = 1.0 - (node.mapped_elements[1].similarity / node.mapped_elements[0].similarity)
 
                 if score >= root_score:
@@ -309,7 +287,7 @@ class NodeMapper:
         root.choice = 0
         done = [False] * len(query.parse_tree.all_nodes)
         queue = [root, root]
-        #print('Group Ranking')
+        
         while len(queue) != 0:
             parent = queue.pop(0)
             child = queue.pop(0)
@@ -323,15 +301,12 @@ class NodeMapper:
                         parent_element = parent.mapped_elements[parent.choice]
                         child_element = child.mapped_elements[i]
                         distance = db.schema_graph.distance(parent_element.schema_element, child_element.schema_element)
-                        #print ('distance btw ', distance, parent_element.schema_element.relation.name,
-                        # parent_element.schema_element.name,  child_element.schema_element.relation.name, child_element.schema_element.name)
                         cur_score = parent_element.similarity * child_element.similarity * distance
-
-
+                        
                         if cur_score > max_score:
                             max_score = cur_score
                             max_position = i
-                    #print(child.label, max_position, mapped_elements)
+                    
                     child.choice = max_position
 
                 if len(child.mapped_elements) == 0:
@@ -360,9 +335,7 @@ class NodeMapper:
                     node.mapped_elements[node.choice].choice == -1:
                         node.token_type = 'NT'
                     else:
-                        #print(node.label, node.mapped_elements)
                         node.token_type = 'VTTEXT'
-
                 #node.mapped_elements[node.choice].choice = 1
         returned_list = [[
             '{3}:{0}.{1}:{2}'.format(y.schema_element.relation.name, y.schema_element.name, \
@@ -372,7 +345,7 @@ class NodeMapper:
 
 
         element = ';'.join(returned_list + [''])
-        #print(element)
+        
         return element
 
     @staticmethod

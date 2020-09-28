@@ -58,14 +58,6 @@ with open(query_file, 'r') as f:
         results = []
         processed_line = line.split('\n')[0]
         logger.debug(str(i) + ") ### {0}".format(processed_line))
-        # if not (i in [40,44,50,51,52,53,56,57,60,62,89,92,98,\
-        #     99,100,101,102,110,112,115,116,149,150,151,\
-        #     152,153,154,155,156,157,158,159,161,164,165,\
-        #     166,185,186,187,188,189,193,194]):
-        #     logger.debug('already processed')
-        #     i+=1
-        #     continue
-        #sys.exit()
         queryOne = Query(processed_line,rdbms.schema_graph)
 
         queryTwo = deepcopy(queryOne)
@@ -94,14 +86,6 @@ with open(query_file, 'r') as f:
                 translate(queryOne, rdbms)
                 results += [queryOne.translated_sql.replace('\n', ' ')]
                 logger.debug('{2}->{1}) ### {0}'.format(queryOne.translated_sql.replace('\n', ' '), j, i))
-                #queryOne = queryTmp
-                #queryOne = deepcopy(queryTmp)
-
-            #if len(queryOne.translated_sql) != 0:
-            
-
-            #if len(queryTwo.translated_sql) != 0:
-            
   
         except Exception as e:
             logger.error("error {0}".format(e))
@@ -132,8 +116,6 @@ with open(query_file, 'r') as f:
             print('all_size', all_size, 'diff_size', different_size)
             if len(response[2]) < size:
                 size = len(response[2])
-            #print([x[0] for x in response[2]][:size])
-            #sys.exit()    
             f_output.write("{0}|{1}|{2}|{3}|{4}|{5}|{6}|{7}|{8}|{9}|{10}|{11}|\n".format( processed_line, \
                 results[0],results[1],results[2],results[3], \
                 queryTwo.translated_sql.replace('\n', ' '),\
@@ -143,8 +125,6 @@ with open(query_file, 'r') as f:
                 [x[1] for x in response[2]][:all_size],\
                 [x[0] for x in response[2]],\
                 [x[1] for x in response[2]] ))
-            
-            #sys.exit()
         results = []
         f_output.flush()
 

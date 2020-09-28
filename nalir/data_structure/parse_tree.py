@@ -51,8 +51,7 @@ class ParseTree (object):
             position = parent.children.index(node)
         except ValueError:
             position = -1
-        #print ('parent: ' + parent.label)
-        #print(position)
+
         if position == -1:
             return
 
@@ -60,9 +59,9 @@ class ParseTree (object):
         if node.left_rel != '' and len(node.children) > 0:
             node.children[0].left_rel = node.left_rel
 
-        #print([x.label for x in parent.children])
+        
         for i in range(len(node.children)):
-            #print('')
+            
             node.children[i].parent = parent
             parent.children.insert(position+i, node.children[i])
 
@@ -70,8 +69,6 @@ class ParseTree (object):
 
         if node.token_type != "QT":
             self.deleted_nodes.append(node)
-        #print(self)
-        #sys.exit()
 
     def __repr__(self):
         result = ''
@@ -90,14 +87,12 @@ class ParseTree (object):
             tam = len(cur_node.children)
             for i in range(tam):
                 nxt = cur_node.children[tam -i - 1]
-                #if nxt not in node_list:
                 node_list.append(nxt)
                 level_list.append(cur_level + 1)
         return result
 
     def show(self):
         dot = Digraph(graph_attr={'size': '5'})
-        # dot.attr(size='5)
 
         def graphviz_node_id(node):
             if node.parent is not None:
