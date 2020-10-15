@@ -26,6 +26,8 @@ class StanfordParser:
 
         os.environ['STANFORD_PARSER'] = jars_path
         os.environ['STANFORD_MODELS'] = jars_path
+        os.environ['CLASSPATH'] = jars_path
+
 
         self.parse(query)
         
