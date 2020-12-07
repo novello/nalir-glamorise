@@ -289,20 +289,20 @@ class Block(object):
                 if i != 0:
                     self.sql += " AND "
                 self.sql += self.conditions[i]
+        # Novello
+        # if len(self.group_elements) > 0:
+        #     if self.outer_block is None:
+        #         self.sql += "\n"
 
-        if len(self.group_elements) > 0:
-            if self.outer_block is None:
-                self.sql += "\n"
+        #     else:
+        #         self.sql += " "
 
-            else:
-                self.sql += " "
+        #     self.sql += "GROUP BY "
+        #     for i in range(len(self.group_elements)):
+        #         if i != 0:
+        #             self.sql += ", "
 
-            self.sql += "GROUP BY "
-            for i in range(len(self.group_elements)):
-                if i != 0:
-                    self.sql += ", "
-
-                self.sql += self.group_elements[i].to_string(self, "")
+        #         self.sql += self.group_elements[i].to_string(self, "")
 
     def find_related_node_from_self(self, main_block):
         outer_nt = main_block.block_root

@@ -17,7 +17,9 @@ class RDBMS:
         for line in cursor:
             results += [line]
 
-        return None
+        #return None
+        #Novello
+        return results
 
     def is_schema_exist(self, tree_node):
         attributes = self.schema_graph.get_elements_by_type('text number')
