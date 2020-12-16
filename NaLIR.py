@@ -30,7 +30,7 @@ config = ConfigHandler(reset=True,config_json_text=config_json_text)
 
 rdbms = RDBMS(config)
 
-query_line='return me the authors name with conference name'
+query_line='return me the author for each citation'
 query = Query(query_line,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser
@@ -73,4 +73,4 @@ query.query_tree.show()
 # **Important Node**: The error message is resultant of line 191 of file data_structure/block.py
 
 translate(query, rdbms)
-print(query.translated_sql)
+print('query', query.translated_sql)

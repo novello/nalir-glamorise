@@ -18,8 +18,7 @@ class RDBMS:
             results += [line]
 
         #return None
-        #Novello
-        print(cursor.description)
+        #GLAMORISE        
         return results, cursor.description
 
     def is_schema_exist(self, tree_node):

@@ -289,7 +289,7 @@ class Block(object):
                 if i != 0:
                     self.sql += " AND "
                 self.sql += self.conditions[i]
-        # Novello
+        # GLAMORISE
         # if len(self.group_elements) > 0:
         #     if self.outer_block is None:
         #         self.sql += "\n"

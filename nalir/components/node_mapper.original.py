@@ -17,9 +17,8 @@ logger = get_logger(__file__)
 class NodeMapper:
 
     @staticmethod
-    def phrase_process(query, db, config, token_path = ''):        
-        if token_path == '':
-            token_path = f'{config.zfiles_path}/tokens.xml'
+    def phrase_process(query, db, config):
+        token_path = f'{config.zfiles_path}/tokens.xml'
         tokens = parse(token_path)
 
         NodeMapper.tokenizer(query, tokens)
