@@ -1,0 +1,41 @@
+[
+  {
+    "name": "ANP",
+    "attributes": [      
+      {
+        "importance": "primary",
+        "name": "FIELD",
+        "type": "text"
+      },
+	  {        
+        "name": "BASIN",
+        "type": "text"
+      },
+	  {        
+        "name": "STATE",
+        "type": "text"
+      },
+	  {        
+        "name": "OPERATOR",
+        "type": "text"
+      },
+	  {        
+        "name": "OIL_PRODUCTION",
+        "type": "number"
+      },
+	  {        
+        "name": "GAS_PRODUCTION",
+        "type": "number"
+      },
+	  {        
+        "name": "MONTH",
+        "type": "number"
+      },
+	  {        
+        "name": "YEAR",
+        "type": "number"
+      }
+    ],
+    "type": "entity"
+  }
+]
