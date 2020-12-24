@@ -1,5 +1,5 @@
 -- create and populate size table
-use anp
+use anp;
 
 DROP TABLE IF EXISTS size;
 CREATE TABLE size(
