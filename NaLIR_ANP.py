@@ -39,7 +39,9 @@ rdbms = RDBMS(config)
 # envelope_noun = true
 # relace_text = {highest : per}
 # nlq_after='What was the the field with the per "production of gas"?'
-nlq='What was the "production of oil" per "year" per "month" in the state of Rio de Janeiro and year 2015?'
+#nlq='What was the "production of oil" per "year" per "month" in the state of Rio de Janeiro and year 2015?'
+
+nlq='What was the the field with the highest anp_gas_production?'
 query = Query(nlq,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser

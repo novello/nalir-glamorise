@@ -30,7 +30,7 @@ config = ConfigHandler(reset=True,config_json_text=config_json_text)
 
 rdbms = RDBMS(config)
 
-nlq='return me the keyword for each publication title in VLDB conference.'
+nlq='give me all keyword_keyword for each conference_name for each publication_title'
 query = Query(nlq,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser
