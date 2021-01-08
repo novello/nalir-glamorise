@@ -161,7 +161,7 @@ class Block(object):
                 if cur_node.parent.token_type == "OT":
                     condition += " " + cur_node.parent.function + " "
 
-                elif cur_node.mapped_elements[cur_node.choice].choice == -1 \
+                elif cur_node.mapped_elements[cur_node.choice].choice == 0 \
                      and cur_node.token_type != "VTNUM":
                     condition += " LIKE \"%"
 
@@ -172,7 +172,7 @@ class Block(object):
                     condition += cur_node.label
 
                 else:
-                    if cur_node.mapped_elements[cur_node.choice].choice == -1:
+                    if cur_node.mapped_elements[cur_node.choice].choice == 0:
                         condition += cur_node.label + "%\""
 
                     else:

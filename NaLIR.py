@@ -30,7 +30,7 @@ config = ConfigHandler(reset=True,config_json_text=config_json_text)
 
 rdbms = RDBMS(config)
 
-nlq='give me all keyword_keyword for each conference_name for each publication_title'
+nlq='return me the author in the "University of Michigan" in Databases area whose papers have more than 5000 citations.'
 query = Query(nlq,rdbms.schema_graph)
 
 # ## Stanford Dependency Parser
