@@ -58,7 +58,7 @@ import nltk
 #nltk.download('averaged_perceptron_tagger')
 #nltk.download('wordnet')
 #nltk.download('punkt')
-NodeMapper.phrase_process(query,rdbms,config, token_path = './zfiles/tokens.anp.xml')
+NodeMapper.phrase_process(query,rdbms,config)
 
 query.parse_tree.show()
 
