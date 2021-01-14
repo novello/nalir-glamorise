@@ -1,0 +1,8 @@
+mysql-connector-python
+nltk
+numpy
+gensim
+ijson
+graphviz
+pandas
+jupyter
