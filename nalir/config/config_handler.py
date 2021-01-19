@@ -10,7 +10,7 @@ class ConfigHandler:
 		if ConfigHandler.__instance is None or reset:
 
 			if config_json_text is None:
-				config_path = '/'.join(__file__.split('/')[:-1] + ['config.json'])
+				config_path = os.sep.join(__file__.split(os.sep)[:-1] + ['config.json'])				
 				config_file = open(config_path, 'r')
 
 				ConfigHandler.__instance = json.load(config_file)
